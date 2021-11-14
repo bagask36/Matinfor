@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class Himpunan {
+    int[] a, b;
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+            int[] a, b;
+            String intersection;
+		
+		String xPrint = "", yPrint = "", intersectionPrint = "";
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Masukkan banyak elemen 'A': ");
+		int A = input.nextInt();
+		a = new int[A];
+		
+		for (int i = 1; i <= A; i++) {
+			System.out.printf("Masukkan elemen ke-%o: ", i);
+			int element = input.nextInt();
+			a[i-1] = element;
+		}
+		
+		for (int i = 0; i < a.length; i ++) {
+			if (i != a.length - 1) {
+				xPrint += a[i] + ",";
+			} else {
+				xPrint += a[i];
+			}
+		}
+		
+		System.out.printf("A={%s}\n\n", xPrint);
+		
+		System.out.print("Masukkan banyak elemen 'B': ");
+		int B = input.nextInt();
+		b = new int[B];
+		
+		for (int i = 1; i <= B; i++) {
+			System.out.printf("Masukkan elemen ke-%o: ", i);
+			int element = input.nextInt();
+			b[i-1] = element;
+		}
+		
+		for (int i = 0; i < b.length; i ++) {
+			if (i != b.length - 1) {
+				yPrint += b[i] + ",";
+			} else {
+				yPrint += b[i];
+			}
+		}
+		
+		System.out.printf("B={%s}\n\n", yPrint);
+		
+		intersection = "";
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < b.length; j++) {
+				if (a[i] == b[j]) {
+					intersection += b[j] + ",";
+				}
+			}
+		}
+		String[] intersectionlast = intersection.split(",");
+		for (int i = 0; i < intersectionlast.length; i++) {
+			if (i != intersectionlast.length - 1) {
+				intersectionPrint += intersectionlast[i] + ",";
+			} else {
+				intersectionPrint += intersectionlast[i];
+			}
+		}
+		System.out.printf("Jadi irisannya adalah {%s}", intersectionPrint);
+	}
+}
