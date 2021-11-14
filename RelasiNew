@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class RelasiNew {
+	public static void main(String[] args) {
+		int[] A;
+		int x, element;
+		
+    Scanner input = new Scanner(System.in);
+		String setAPrint = "";
+    String reflexive = "";
+                	
+		System.out.println("Jenis Relasi Refleksif");
+		
+		System.out.print("Masukkan banyak himpunan 'A': ");
+		x = input.nextInt();
+		A = new int[x];
+		
+		for (int i = 1; i <= x; i++) {
+			System.out.printf("Masukkan elemen 'A' ke- %o: ", i);
+			element = input.nextInt();
+			A[i-1] = element;
+		}
+		
+		for (int i = 0; i < A.length; i++) {
+			if (i != A.length - 1) {
+                                setAPrint += A[i] + ",";
+			} else {
+				setAPrint +=A[i];
+			}
+		}
+		
+		System.out.println("\n");
+		
+		System.out.printf("A=(%s}\n\n\n", setAPrint);
+		
+		for (int i = 0; i < A.length; i++) {
+			if (i != A.length - 1) {
+				reflexive += "(" + A[i] + "," + A[i] + "),";
+			} else {
+				reflexive += "(" + A[i] + "," + A[i] + ")";
+			}
+		}		
+		System.out.printf("Refleksif dari himpunan A = {%s}", reflexive);
+}
+}
